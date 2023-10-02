@@ -3,10 +3,10 @@ import axios from "axios";
 import data from './data.js';
 import https from 'https';
 // constants to replace below
-const token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlUktVWG10TFhKMHBBNkxBS29aWko1ZlU0VDhCdmxKdERCb3pXanFFdnhjIn0.eyJleHAiOjE2OTYyMDYzMDIsImlhdCI6MTY5NjE3MDMwMywiYXV0aF90aW1lIjoxNjk2MTcwMzAyLCJqdGkiOiI3ZDUzMThkOC1hZTgxLTQ3MGQtODNkYS04YmM0NjM5NDZhNTIiLCJpc3MiOiJodHRwczovL3Nzby52aXRpbWVzLm9yZy9hdXRoL3JlYWxtcy9nbG9iaXRzIiwic3ViIjoiMDQzNTA1MzEtNWJmZC00YjQ4LWJjMmEtODliNThlYzEwM2M5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3NvQ2xpZW50LTEiLCJub25jZSI6Ijc0MzI4Y2RjLTAxOTYtNGI3YS04MWM2LTJkZjVkYWU2NGNhZSIsInNlc3Npb25fc3RhdGUiOiJhNDhlYjI5My05ODNjLTQ0NjktYmQxNi1hOGZjNDc5ZGQyY2MiLCJhY3IiOiIxIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIm5hbWUiOiJBZG1pbiBTdXBlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZmFtaWx5X25hbWUiOiJTdXBlciJ9.c0MzQ4fZxR-5smtl7CScfQyZNWeYZT1t6SINY6MIzL3gD0sVNZnCSh3q0BZOPqUVFqTvJggYOKoUswXCudfioFR8g6URDEV6gmHNEDkQAsaf0NgxZnvJ-00BIczA4EPrTVrHx0uKkAKWSBf96SSs0GN8UaVx33waGtiHzl5QhcVGpakpeYuilsXk8qtPEYnQGR4utAyXh0DSI1NxgAesQ6VLeF7frUzFcdcd1r7_FYgm1CxxNC8YN7RSzldNmM23oux9CKvVBRpnOVv0zkqq0N8cYGRV9-qEZxGIfKsJuqpaLc84Zp7TO0WHG5hBWpGYrgVYfSfTov4WkJu6CfI1ig";
+const token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlUktVWG10TFhKMHBBNkxBS29aWko1ZlU0VDhCdmxKdERCb3pXanFFdnhjIn0.eyJleHAiOjE2OTYyNDY3MTAsImlhdCI6MTY5NjIxMDczOCwiYXV0aF90aW1lIjoxNjk2MjEwNzEwLCJqdGkiOiIxNDRhMDkzMi04OGJiLTQwZTAtYTIzNy0yOWMxMTViOTc1MzkiLCJpc3MiOiJodHRwczovL3Nzby52aXRpbWVzLm9yZy9hdXRoL3JlYWxtcy9nbG9iaXRzIiwic3ViIjoiMDQzNTA1MzEtNWJmZC00YjQ4LWJjMmEtODliNThlYzEwM2M5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3NvQ2xpZW50LTEiLCJub25jZSI6IjU5ZmUzMjJiLWZiNDItNDk0Ny1iYzNkLTVkNWU3NjEzMThkNiIsInNlc3Npb25fc3RhdGUiOiI2YjUzYWQzNS05NTFjLTRlN2MtYTBkNS01OTZhMjU1NDNjZjQiLCJhY3IiOiIwIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIm5hbWUiOiJBZG1pbiBTdXBlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZmFtaWx5X25hbWUiOiJTdXBlciJ9.qQnJAcl-7j05mF1si6CUtyFZH-6Y9IiF7NZrpbLUP59llatxbWreRKTNmoewGZbGGXkFgnN-SehbSwRLUhdJtXBdvZvp-6TlH8FP22UbGKi2coQN2brixFd-KXDZG_HBksX1DrF3_-30TuI0JcOnKgdGyADHyBVUwF7zUunCGzATPm_eBWfJquDxoyY6QQZ2TVsw7qDbuJygX2AeHBRqtWQiLtxV_YF_o154bFKqVMret4RvLtgbKoBJoRthJKGMRL8sm5tOWuy030lrYMXBjCjNLUVx2FmQUXECbWnOO6RBvNE21ufdvPQFF9D0ag8aWCdEbtNybXi5uoo1cDEahw";
 const MAX_SIZE = 10;
-// const API_PATH = "https://hiscndstb.vitimes.org/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
-const API_PATH = "http://localhost:8071/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
+const API_PATH = "https://hiscndstb.vitimes.org/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
+// const API_PATH = "http://localhost:8071/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
 // end constants
 
 // DO NOT DO THIS IF SHARING PRIVATE DATA WITH SERVICE
@@ -83,6 +83,7 @@ const pushing = async () => {
         }
 
     } catch (err) {
+        console.timeEnd("⌚⌚⌚ ~ time pushing: ")
         if (axios.isCancel(err)) {
             console.log('Request canceled after 12m', err.message);
             console.log("📆📆📆 ~ pushing again after 15s")
