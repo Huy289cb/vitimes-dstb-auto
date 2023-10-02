@@ -1,0 +1,16 @@
+{
+  "name": "vitimes-dstb-auto",
+  "version": "1.0.0",
+  "description": "auto tool for push missing or falure data convert dstb",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --experimental-modules index.mjs"
+  },
+  "author": "huy289cb",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}
