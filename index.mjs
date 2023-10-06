@@ -3,10 +3,12 @@ import axios from "axios";
 import data from './data.js';
 import https from 'https';
 // constants to replace below
-const token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlUktVWG10TFhKMHBBNkxBS29aWko1ZlU0VDhCdmxKdERCb3pXanFFdnhjIn0.eyJleHAiOjE2OTYyNDY3MTAsImlhdCI6MTY5NjIxMDczOCwiYXV0aF90aW1lIjoxNjk2MjEwNzEwLCJqdGkiOiIxNDRhMDkzMi04OGJiLTQwZTAtYTIzNy0yOWMxMTViOTc1MzkiLCJpc3MiOiJodHRwczovL3Nzby52aXRpbWVzLm9yZy9hdXRoL3JlYWxtcy9nbG9iaXRzIiwic3ViIjoiMDQzNTA1MzEtNWJmZC00YjQ4LWJjMmEtODliNThlYzEwM2M5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3NvQ2xpZW50LTEiLCJub25jZSI6IjU5ZmUzMjJiLWZiNDItNDk0Ny1iYzNkLTVkNWU3NjEzMThkNiIsInNlc3Npb25fc3RhdGUiOiI2YjUzYWQzNS05NTFjLTRlN2MtYTBkNS01OTZhMjU1NDNjZjQiLCJhY3IiOiIwIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIm5hbWUiOiJBZG1pbiBTdXBlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZmFtaWx5X25hbWUiOiJTdXBlciJ9.qQnJAcl-7j05mF1si6CUtyFZH-6Y9IiF7NZrpbLUP59llatxbWreRKTNmoewGZbGGXkFgnN-SehbSwRLUhdJtXBdvZvp-6TlH8FP22UbGKi2coQN2brixFd-KXDZG_HBksX1DrF3_-30TuI0JcOnKgdGyADHyBVUwF7zUunCGzATPm_eBWfJquDxoyY6QQZ2TVsw7qDbuJygX2AeHBRqtWQiLtxV_YF_o154bFKqVMret4RvLtgbKoBJoRthJKGMRL8sm5tOWuy030lrYMXBjCjNLUVx2FmQUXECbWnOO6RBvNE21ufdvPQFF9D0ag8aWCdEbtNybXi5uoo1cDEahw";
-const MAX_SIZE = 10;
-const API_PATH = "https://hiscndstb.vitimes.org/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
-// const API_PATH = "http://localhost:8071/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
+const token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlUktVWG10TFhKMHBBNkxBS29aWko1ZlU0VDhCdmxKdERCb3pXanFFdnhjIn0.eyJleHAiOjE2OTYzMzQ1MzcsImlhdCI6MTY5NjI5ODUzOSwiYXV0aF90aW1lIjoxNjk2Mjk4NTM3LCJqdGkiOiIzMmM3ODVjNS1jYmQzLTQ0MDktYWY0Mi01YzAzNzgxNjRhYjUiLCJpc3MiOiJodHRwczovL3Nzby52aXRpbWVzLm9yZy9hdXRoL3JlYWxtcy9nbG9iaXRzIiwic3ViIjoiMDQzNTA1MzEtNWJmZC00YjQ4LWJjMmEtODliNThlYzEwM2M5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic3NvQ2xpZW50LTEiLCJub25jZSI6IjQ5YjI0NmM5LTA4ODgtNDJiMi04MGQyLTc3MjBjMTEzM2MyZCIsInNlc3Npb25fc3RhdGUiOiIwYWJmMzk1Zi1hODNjLTQwMTAtYTgyYi02NTIwZjYyZjYyOTIiLCJhY3IiOiIwIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIm5hbWUiOiJBZG1pbiBTdXBlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZmFtaWx5X25hbWUiOiJTdXBlciJ9.WRhxa0K1p1bpCTIuN4wNb0nyRr5kfrbcahZoTAuVF38GX2S5VFusGXZORttaBXh52ZqzXw05Y56exfTEOXo1uI6OVHhPGkwGttjsjS9Y9TkfjyoDYmn6Y-mh5pAog1laREf1e-fzKxTiWd0vQcHUdVjIcHWmwpkVFXvZCfxDX3HfMFwFtSBOzcWc8jq64hc5zUMW51ugtYZ4mzSrxD-f81euG0GsGsfAJ53404wpaG0VW_W8vftajkOODAkwuUfkywo5elBCARIWaew024ysRo2eHBSvwWAxl3o990R4WqKaKGdzrccPphPJoeV1PHTA3Bdd_4Ra3JS6GTTW0IYPCA";
+const MAX_SIZE = 200;
+// const API_PATH = "https://hiscndstb.vitimes.org/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
+const API_PATH = "http://localhost:8071/sync/test/Patient/v2/synctool/syncPatientFromOldVitimes";
+
+let currentIndex = 0;
 // end constants
 
 // DO NOT DO THIS IF SHARING PRIVATE DATA WITH SERVICE
@@ -24,8 +26,6 @@ const body = {
     "idRecordDebugIntValue": null,
     "patientIds": []
 }
-
-let currentIndex = 0;
 
 function newAbortSignal(timeoutMs) {
     const abortController = new AbortController();
@@ -56,7 +56,7 @@ const pushing = async () => {
             patientIds: pushingData
         }
         console.time("⌚⌚⌚ ~ time pushing: ")
-        const resPushing = await axios.post(API_PATH, dto, {signal: newAbortSignal(720000)}); //12m
+        const resPushing = await axios.post(API_PATH, dto, {signal: newAbortSignal(MAX_SIZE*72000)});
         console.timeEnd("⌚⌚⌚ ~ time pushing: ")
         if (resPushing != null && resPushing.data) {
             currentIndex += (MAX_SIZE);
@@ -85,7 +85,7 @@ const pushing = async () => {
     } catch (err) {
         console.timeEnd("⌚⌚⌚ ~ time pushing: ")
         if (axios.isCancel(err)) {
-            console.log('Request canceled after 12m', err.message);
+            console.log(`Request canceled after ${MAX_SIZE*72000/60000}m`, err.message);
             console.log("📆📆📆 ~ pushing again after 15s")
             setTimeout(() => {
                 pushing();
